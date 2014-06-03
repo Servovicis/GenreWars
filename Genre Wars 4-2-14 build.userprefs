@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TurnActionOrderHandler.cs">
+    <Files>
+      <File FileName="Assets\Scripts\TurnActionOrderHandler.cs" Line="76" Column="5" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="213" Column="53" />
+      <File FileName="Assets\Scripts\Unit and Types\Unit.cs" Line="131" Column="1" />
+      <File FileName="Assets\Scripts\PrefabGenreScript.cs" Line="41" Column="1" />
+      <File FileName="Assets\Scripts\GenreScriptInitializer.cs" Line="14" Column="1" />
+      <File FileName="Assets\Scripts\Tile.cs" Line="142" Column="123" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

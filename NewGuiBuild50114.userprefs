@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GUI Scripts\UnitChoice.cs" Line="60" Column="69" />
+      <File FileName="Assets\Scripts\Tile.cs" Line="172" Column="22" />
+      <File FileName="Assets\Scripts\TurnActionOrderHandler.cs" Line="56" Column="33" />
+      <File FileName="Assets\Scripts\Unit and Types\Unit.cs" Line="248" Column="28" />
+      <File FileName="Assets\Scripts\ActionHelper.cs" Line="104" Column="18" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="138" Column="94" />
+      <File FileName="Assets\NGUI\Examples\Scripts\Other\SetColorOnSelection.cs" Line="22" Column="40" />
+      <File FileName="Assets\Scripts\Unit and Types\HeavyKind.cs" Line="131" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

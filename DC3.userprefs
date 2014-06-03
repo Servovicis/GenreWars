@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Unit and Types\SorcererKind.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Unit and Types\HeavyKind.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Unit and Types\KingKind.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Unit and Types\MeleeKind.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Unit and Types\RangedKind.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Unit and Types\SorcererKind.cs" Line="3" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

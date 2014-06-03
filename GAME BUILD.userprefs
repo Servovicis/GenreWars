@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\j0864661\Documents\HexGame\Assets\HexGame\Scripts\Positioning\HexPosition.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GUI Scripts\GUIMainMenu.cs" Line="8" Column="22" />
+      <File FileName="..\..\Documents\HexGame\Assets\3rd Party Tools\NGUI\Scripts\Internal\UIEventListener.cs" Line="27" Column="19" />
+      <File FileName="Assets\NGUI\Scripts\Internal\UIEventListener.cs" Line="40" Column="27" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="38" Column="2" />
+      <File FileName="Assets\Scripts\Grid Scripts\GridCS.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Tile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameInit.cs" Line="36" Column="76" />
+      <File FileName="Assets\Scripts\Action.cs" Line="5" Column="1" />
+      <File FileName="c:\Users\j0864661\Documents\HexGame\Assets\HexGame\Scripts\Positioning\HexPosition.cs" Line="100" Column="97" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

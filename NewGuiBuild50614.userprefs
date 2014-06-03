@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI Scripts\UnitChoice.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GUI Scripts\UnitChoice.cs" Line="25" Column="43" />
+      <File FileName="c:\Users\Ahmed\Desktop\NewGuiBuild50614\Assets\Scripts\Tile.cs" Line="5" Column="14" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

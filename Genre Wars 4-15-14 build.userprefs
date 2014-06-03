@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI Scripts\GUIMainMenu.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GUI Scripts\GUIPlayer1Choice.cs" Line="1" Column="1" />
+      <File FileName="Assets\NGUI\ReadMe - 2.7.0.txt" Line="1" Column="15" />
+      <File FileName="Assets\NGUI\Scripts\Tweening\TweenScale.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUI Scripts\GUIMainMenu.cs" Line="30" Column="27" />
+      <File FileName="c:\Users\a0442192\Desktop\Genre Wars 4-15-14 build\Assets\NGUI\Scripts\Editor\NGUIEditorTools.cs" Line="1039" Column="59" />
+      <File FileName="Assets\Scripts\GUI Scripts\GUIPlayer2Choice.cs" Line="45" Column="29" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

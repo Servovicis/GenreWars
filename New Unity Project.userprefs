@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUIOptionsMenu.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GUIMainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUIOptionsMenu.cs" Line="48" Column="40" />
+      <File FileName="Assets\Scripts\GUIPlayerChoice.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

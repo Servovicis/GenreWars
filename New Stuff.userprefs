@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\a0442192\Desktop\New Stuff\Assets\NGUI\Scripts\Editor\UIPanelInspector.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GUI Scripts\GUIMainMenu.cs" Line="57" Column="38" />
+      <File FileName="c:\Users\a0442192\Desktop\New Stuff\Assets\NGUI\Scripts\Editor\NGUIEditorTools.cs" Line="1039" Column="54" />
+      <File FileName="Assets\Scripts\GUI Scripts\GUIPlayer2Choice.cs" Line="45" Column="29" />
+      <File FileName="Assets\Scripts\GUI Scripts\GUIPlayer1Choice.cs" Line="45" Column="26" />
+      <File FileName="Assets\NGUI\Scripts\Editor\UIFontInspector.cs" Line="340" Column="62" />
+      <File FileName="Assets\NGUI\Scripts\Editor\UIFontMaker.cs" Line="175" Column="47" />
+      <File FileName="c:\Users\a0442192\Desktop\New Stuff\Assets\NGUI\Scripts\Editor\UIPanelInspector.cs" Line="222" Column="64" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
