@@ -60,7 +60,7 @@ public class CursorSelection : MonoBehaviour {
 						selectedTile = tileMouseOverScript;
 				}
 			}
-			if (Input.GetMouseButtonDown (1)) {
+			if (Input.GetMouseButtonDown (0)) {
 				if (tileMouseOverScript != null) {
 					switch (tileMouseOverScript.TileSelectionType){
 					case Tile.OverlayType.AttackAvailable:
