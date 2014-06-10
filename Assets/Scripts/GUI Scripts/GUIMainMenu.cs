@@ -111,6 +111,7 @@ public class GUIMainMenu : MonoBehaviour
 		
 		GUI.EndGroup ();
 	}*/
+
 	void OnSinglePlayerButtonClicked (GameObject Button)
 	{
 	}
@@ -126,6 +127,7 @@ public class GUIMainMenu : MonoBehaviour
 	}
 	void OnHelpButtonClicked (GameObject Button)
 	{
+		Application.LoadLevel(4);
 	}
 	void OnExitButtonClicked (GameObject Button)
 	{
