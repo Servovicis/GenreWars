@@ -6,7 +6,7 @@ public class CursorSelection : MonoBehaviour {
 	#region Singleton
 	
 	public static CursorSelection Instance { get; set; } 
-	
+	CursorSelection CursorSelectionScript;
 	#endregion
 
 	public Tile tileMouseOverScript;
@@ -105,7 +105,9 @@ public class CursorSelection : MonoBehaviour {
 						selectedTile.LoadedUnitScript.OnMoveSelect(new Vector2(tileMouseOverScript.xcoord, tileMouseOverScript.zcoord),
 						                                           selectedTile.LoadedUnitScript.Position, (int) tileMouseOverScript.layerNumber.x, (int) selectedTile.layerNumber.x);
 						break;
+
 					}
+					UnitChoice.Instance.SpawnButton();
 				}
 			}
 		}
