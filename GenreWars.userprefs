@@ -1,12 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CursorSelection.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
     <Files>
       <File FileName="GenreWars.sln" Line="46" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="283" Column="2" />
-      <File FileName="Assets\Scripts\CursorSelection.cs" Line="53" Column="19" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="299" Column="2" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="107" Column="60" />
+      <File FileName="Assets\Scripts\CursorSelection.cs" Line="73" Column="13" />
       <File FileName="Assets\Scripts\Action.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ActionHelper.cs" Line="57" Column="36" />
+      <File FileName="Assets\Scripts\ActionHelper.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Genre.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GenreControl.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GenreScriptInitializer.cs" Line="1" Column="1" />
@@ -14,12 +15,11 @@
       <File FileName="Assets\Scripts\PrefabGenreScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SetPlayerGenre.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Tile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Unit and Types\Unit.cs" Line="239" Column="19" />
-      <File FileName="Assets\Scripts\GUI Scripts\UnitChoice.cs" Line="52" Column="14" />
+      <File FileName="Assets\Scripts\Unit and Types\Unit.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUI Scripts\UnitChoice.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GUI Scripts\SwitchButton.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Grid Scripts\GridCS.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TurnActionOrderHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Unit and Types\SorcererKind.cs" Line="125" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
