@@ -25,6 +25,7 @@ public class CursorSelection : MonoBehaviour {
 	}
 
 	GameManager GameManagerScript;
+	UnitChoice unitChoice;
 	public Ray RayCast;
 	public RaycastHit HitPoint;
 	public LayerMask TileLayer = 1 << 8;
@@ -57,7 +58,7 @@ public class CursorSelection : MonoBehaviour {
 				tileMouseOverScript = null;
 			}
 
-			if (Input.GetMouseButtonDown (0)) {
+			if (Input.GetMouseButtonDown (0)) {//when you left click, go through this list
 				if (tileMouseOverScript != null) {
 					switch (tileMouseOverScript.TileSelectionType){
 					case Tile.OverlayType.AttackAvailable:
@@ -98,13 +99,17 @@ public class CursorSelection : MonoBehaviour {
 					}
 				}
 			}
-			if (Input.GetMouseButtonDown(1)){
+			if (Input.GetMouseButtonDown(1)){//when you right click, go through this list
 				if (tileMouseOverScript != null) {
 					switch (tileMouseOverScript.TileSelectionType){
 						case Tile.OverlayType.MoveAvailable:
 						selectedTile.LoadedUnitScript.OnMoveSelect(new Vector2(tileMouseOverScript.xcoord, tileMouseOverScript.zcoord),
 						                                           selectedTile.LoadedUnitScript.Position, (int) tileMouseOverScript.layerNumber.x, (int) selectedTile.layerNumber.x);
 						break;
+					}
+					if (tileMouseOverScript.TileSelectionType == Tile.OverlayType.Unselected) {
+						selectedTile = tileMouseOverScript;
+						//unitChoice.SpawnButton();
 					}
 				}
 			}
