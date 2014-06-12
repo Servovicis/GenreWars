@@ -67,10 +67,7 @@ public class CursorSelection : MonoBehaviour {
 						selectedTile.LoadedUnitScript.OnAttackSelect(AttackedUnit.Position, selectedTile.LoadedUnitScript.Position,
 						                                             AttackedUnit.layer, (int) selectedTile.layerNumber.x);
 						break;
-					case Tile.OverlayType.MoveAvailable:
-						selectedTile.LoadedUnitScript.OnMoveSelect(new Vector2(tileMouseOverScript.xcoord, tileMouseOverScript.zcoord),
-						                                           selectedTile.LoadedUnitScript.Position, (int) tileMouseOverScript.layerNumber.x, (int) selectedTile.layerNumber.x);
-						break;
+					
 					case Tile.OverlayType.SpecialAvailable:
 						selectedTile.LoadedUnitScript.OnSpecialSelect(new Vector2(tileMouseOverScript.xcoord,
 						                                                          tileMouseOverScript.zcoord), selectedTile.LoadedUnitScript.Position, (int) tileMouseOverScript.layerNumber.x, (int) selectedTile.layerNumber.x);
@@ -98,6 +95,16 @@ public class CursorSelection : MonoBehaviour {
 								NGUITools.SetActive(thisButton.gameObject, false);
 							}
 						}
+					}
+				}
+			}
+			if (Input.GetMouseButtonDown(1)){
+				if (tileMouseOverScript != null) {
+					switch (tileMouseOverScript.TileSelectionType){
+						case Tile.OverlayType.MoveAvailable:
+						selectedTile.LoadedUnitScript.OnMoveSelect(new Vector2(tileMouseOverScript.xcoord, tileMouseOverScript.zcoord),
+						                                           selectedTile.LoadedUnitScript.Position, (int) tileMouseOverScript.layerNumber.x, (int) selectedTile.layerNumber.x);
+						break;
 					}
 				}
 			}
