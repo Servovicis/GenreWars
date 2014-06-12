@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SkeletonArcherKind : RangedKind {
 
 	// Use this for initialization
 	protected override void Awake () {
-		SpecialName1 = "Bone Shot!";
-		SpecialName2 = "Bone Trap!";
+		Special1Name = "Bone Shot!";
+		Special2Name = "Bone Trap!";
 		base.Awake ();
 	}
 	

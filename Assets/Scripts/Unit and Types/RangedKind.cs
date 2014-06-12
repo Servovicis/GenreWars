@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class RangedKind : Unit 
-{
+public abstract class RangedKind : MobileUnit {
 	const int initHealth = 10;
 	const int initDefense = 1;
 	const int initDamage = 5;
@@ -21,8 +20,6 @@ public abstract class RangedKind : Unit
 	private const int GUIButtonHeight = 29;
 	public string UnitTypeNameOverride = "Ranged";
 	public string MyNameOverride;
-	public string SpecialName1 = "Power Shot";
-	public string SpecialName2 = "Snare";
 	private int MinPowerRange = 1;
 	private int MaxPowerRange = 10;
 	private int PowerDamage = 8;
@@ -53,7 +50,6 @@ public abstract class RangedKind : Unit
 		unitGUI = UnitGUI;
 		UnitType = GridCS.UnitType.Ranged;
 		IsKing = false;
-		OnActionSelect += InsertGUI;
 		OnActionDeselectExtra = RemoveGUI;
 		OnAttack = UnitResolveAttack;
 		//OnAttack = AOEAttack;
@@ -64,47 +60,26 @@ public abstract class RangedKind : Unit
 		IsSpawnable = initIsSpawnable;
 		MyName = MyNameOverride;
 	}
+
+	public override void SpecButton1 () {
+		OnSpecial = PowerShot;
+		RemoveAbilityRange ();
+		SeeIfCanPowerShot ();
+		RemoveAbilityRange += RemoveSeeIfCanPowerShot;
+		OnSpecialSelect = SpecialSelection;
+		if (SnareSelected && IsMobile){
+			CalculateMoveRange ();
+			SnareSelected = false;
+		}
+	}
 	
-	public virtual void RangedGUI ()
-	{
-		if (!HasInteracted) {
-			GUI.BeginGroup (GUIGroupSize);
-			if (GUI.Button (new Rect  (175, 0, GUIButtonWidth, GUIButtonHeight), "Attack!")) {
-				RemoveAbilityRange ();
-				CalculateAttackRange ();
-				RemoveAbilityRange += RemoveAttackRange;
-				if (SnareSelected && IsMobile){
-					CalculateMoveRange ();
-					SnareSelected = false;
-				}
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-			}
-			if (GUI.Button (new Rect (400, 0, GUIButtonWidth, GUIButtonHeight), SpecialName1)){
-				OnSpecial = PowerShot;
-				RemoveAbilityRange ();
-				SeeIfCanPowerShot ();
-				RemoveAbilityRange += RemoveSeeIfCanPowerShot;
-				OnSpecialSelect = SpecialSelection;
-				if (SnareSelected && IsMobile){
-					CalculateMoveRange ();
-					SnareSelected = false;
-				}
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-			}
-			if (GUI.Button (new Rect (625, 0, GUIButtonWidth, GUIButtonHeight), SpecialName2)) {
-				OnSpecial = SetSnare;
-				RemoveAbilityRange ();
-				SeeIfCanSnare ();
-				RemoveAbilityRange += RemoveSeeIfCanSnare;
-				OnSpecialSelect = SnareSelection;
-				SnareSelected = true;
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-		}
-		GUI.EndGroup ();
-		}
+	public override void SpecButton2 () {
+		OnSpecial = SetSnare;
+		RemoveAbilityRange ();
+		SeeIfCanSnare ();
+		RemoveAbilityRange += RemoveSeeIfCanSnare;
+		OnSpecialSelect = SnareSelection;
+		SnareSelected = true;
 	}
 	
 	public virtual void PowerShot(Vector2 TargetPosition, Vector2 InitiatorPosition, int TargetLayer, int InitiatorLayer){
@@ -137,17 +112,6 @@ public abstract class RangedKind : Unit
 		OnActionSelect ();
 		HasInteracted = !HasInteracted;
 		TurnInteract = new Vector2(0,0);
-	}
-	
-	public virtual void InsertGUI(){
-		GameManager.Instance.buttonsGUIFunction += RangedGUI;
-	}
-	
-	public virtual void RemoveGUI(){
-		GameManager.Instance.buttonsGUIFunction = null;
-		OnActionSelect += InsertGUI;
-		SnareSelected = false;
-		RemoveAbilityRange = RemoveAttackRange;
 	}
 	
 	public override void CalculateAttackRange (){

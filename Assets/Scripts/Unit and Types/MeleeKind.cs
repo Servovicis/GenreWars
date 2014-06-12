@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class MeleeKind : Unit 
-{
+public abstract class MeleeKind : MobileUnit {
 	const int initHealth = 10;
 	const int initDefense = 1;
 	const int initDamage = 4;
@@ -15,9 +14,6 @@ public abstract class MeleeKind : Unit
 	const bool initIsSelectable = true;
 	const bool initIsSpawnable = true;
 	const int initUnitMenuItems = 3;
-	private Rect GUIGroupSize = new Rect(0, 0, 0, 0);
-	private const int GUIButtonWidth = 185;
-	private const int GUIButtonHeight = 29;
 	private int MinSmashRange = 1;
 	private int MaxSmashRange = 2;
 	//private int SmashDamage = 5;
@@ -27,11 +23,9 @@ public abstract class MeleeKind : Unit
 	public bool HolyAnnilationAvailable = true;
 	public string UnitTypeNameOverride = "Melee";
 	public string MyNameOverride;
-	protected string Special1Name = "Overhead Smash";
-	protected string Special2Name = "Thrust Attack";
 	int regDamage = 6;
 	int WaittoAnnih = 0;
-	
+
 	protected override void Awake()
 	{
 		base.Awake ();
@@ -47,16 +41,15 @@ public abstract class MeleeKind : Unit
 		IsSelectable = initIsSelectable;
 		IsSpawnable = initIsSpawnable;
 		UnitMenuItems = initUnitMenuItems;
-		GUIGroupSize.height = GUIButtonHeight;
-		GUIGroupSize.width = 1000;
 		unitGUI = UnitGUI;
 		UnitType = GridCS.UnitType.Melee;
 		IsKing = false;
-		OnActionSelect += InsertGUI;
-		OnActionDeselectExtra = RemoveGUI;
-		OnAttack = UnitResolveAttack;
 		//OnAttack = AOEAttack;
 		OnDeath += meleeDeath;
+		MyButtons [0] = AttackButton;
+		MyButtons [1] = DefendButton;
+		MyButtons [2] = SpecButton1;
+		MyButtons [3] = SpecButton2;
 	}
 
 	public override void UnitTypeSet (){
@@ -71,46 +64,27 @@ public abstract class MeleeKind : Unit
 		}
 	}
 
-	public virtual void MeleeUnitGUI ()
-	{
-		if (!HasInteracted) {
-			GUI.BeginGroup (GUIGroupSize);
-			if (GUI.Button (new Rect  (175, 0, GUIButtonWidth, GUIButtonHeight), "Attack!")) 		
-			{
-				RemoveAbilityRange ();
-				CalculateAttackRange ();
-				RemoveAbilityRange += RemoveAttackRange;
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-			}
-			if (GUI.Button (new Rect (400, 0, GUIButtonWidth, GUIButtonHeight), Special1Name)) 
-			{
-				OnSpecial = PhysicalDeath;
-				RemoveAbilityRange ();
-				SeeIfCanSmash ();
-				RemoveAbilityRange += RemoveSeeIfCanSmash;
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-			}
-			if (HolyAnnilationAvailable) {
-				if (GUI.Button (new Rect (625, 0, GUIButtonWidth, GUIButtonHeight), Special2Name)) {
-					if ( WaittoAnnih == 0) {
-					OnSpecial = HolyAnnilation;
-					RemoveAbilityRange ();
-					SeeIfCanThrustAttack ();
-					RemoveAbilityRange += RemoveSeeIfCanThrustAttack;
-					//OnActionDeselect = RemoveMoveRange;
-					//OnActionDeselect += RemoveAbilityRange;
-					HolyAnnilationAvailable = false;
-					}
-				}
-			}
-			else{
-				GUI.Box(new Rect (625, 0, GUIButtonWidth, GUIButtonHeight), Special2Name + ": "+ WaittoAnnih);
-			}
-			GUI.EndGroup ();
+	#region GUI Buttons
+
+	public override void SpecButton1 () {
+		OnSpecial = PhysicalDeath;
+		RemoveAbilityRange ();
+		SeeIfCanSmash ();
+		RemoveAbilityRange += RemoveSeeIfCanSmash;
+	}
+
+	public override void SpecButton2 () {
+		if ( WaittoAnnih == 0) {
+			OnSpecial = HolyAnnilation;
+			RemoveAbilityRange ();
+			SeeIfCanThrustAttack ();
+			RemoveAbilityRange += RemoveSeeIfCanThrustAttack;
+			HolyAnnilationAvailable = false;
 		}
 	}
+
+	#endregion
+
 	public virtual void PhysicalDeath(Vector2 TargetPosition, Vector2 InitiatorPosition, int TargetLayer, int InitiatorLayer){
 		Debug.Log (TargetPosition + " We got hit bad!!!");
 		HasInteracted = false;
@@ -164,15 +138,5 @@ public abstract class MeleeKind : Unit
 		OnActionSelect ();
 		HasInteracted = !HasInteracted;
 		TurnInteract = new Vector2(0,0);
-	}
-	
-	public virtual void InsertGUI(){
-		GameManager.Instance.buttonsGUIFunction += MeleeUnitGUI;
-	}
-	
-	public virtual void RemoveGUI(){
-		GameManager.Instance.buttonsGUIFunction = null;
-		OnActionSelect += InsertGUI;
-		RemoveAbilityRange = RemoveAttackRange;
 	}
 }

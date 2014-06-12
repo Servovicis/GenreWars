@@ -72,12 +72,16 @@ public class GameManager : MonoBehaviour
 
 	#region Other Declarations
 	public LinkedList<Unit> AllUnits = new LinkedList<Unit> ();
+	
+	//A list that handles the in-game GUI buttons.
+	public GUILeftPaneButton[] LeftPaneButtons;
 	#endregion
 
 	#region Initialize
 	void Awake ()
 	{
 		Instance = this;
+		LeftPaneButtons = new GUILeftPaneButton[4];
 	}
 
 	void Start ()
@@ -159,6 +163,7 @@ public class GameManager : MonoBehaviour
 	}	
 
 	//A small scroll box that appears at the bottom left-hand side of the screen, holding buttons which are loaded into the optionsGUIFunction delegate by other scripts.
+	//TODO: Remove this
 	public void GUISelectionBox()
 	{
 		scrollPosition = GUI.BeginScrollView (new Rect (Screen.width / 2f - Screen.width *.85f / 2f, Screen.height * .8f, Screen.width * .85f, Screen.height * .1f), 
@@ -205,40 +210,24 @@ public class GameManager : MonoBehaviour
 	public void _EnterInsertPhase(){
 		if (OnTurnBegin != null)
 			OnTurnBegin ();
+		UnitChoice.Instance.AllSpawnableUnits.Clear();
 		CameraPerspective ();
 		cursorSelectionScript.mouseFunction = cursorSelectionScript.InsertMouseFunction;
 		switchButton.EnableSpawnableArea ();
 		turnState = TurnStates.InsertPhase;
 		SelectionBoxSize = unitChoice.NumberOfButtons * 200 + 50;
-		buttonsGUIFunction += unitChoice.GUISelectionBoxInsert;
 		guiFunction += actionOrderHandler.UndoGUI;
-		guiFunction -= switchButton.GUIFunction;
 		guiFunction += GUISelectionBox;
 		guiFunction += switchButton.GUIPlayerStats;
 		guiFunction += unitChoice.SpawnButton;
-		guiFunction += unitChoice.GUI_EnterActionPhase;
 		phaseGUIFunction = guiFunction;
-	}
-
-	public void _EnterActionPhase(){
-		switchButton.DisableSpawnableArea ();
-		turnState = TurnStates.ActionPhase;
-		unitChoice.SpawnedUnit = null;
-		buttonsGUIFunction = null;
-		guiFunction -= unitChoice.SpawnButton;
-		guiFunction -= unitChoice.GUI_EnterActionPhase;
-		guiFunction += unitChoice.GUI_EnterResolvePhase;
-		phaseGUIFunction = guiFunction;
-		actionOrderHandler.InitializeList ();
-		if (CursorSelection.Instance.selectedTile != null) {
-			if (CursorSelection.Instance.selectedTile.LoadedUnitScript != null) 
-				CursorSelection.Instance.selectedTile.LoadedUnitScript.OnActionSelect ();
-		}
+		UnitChoice.Instance.GUISelectionBoxInsert ();
 	}
 
 	public void _EnterResolvePhase() {
 		if (OnResolveTransitionInitial != null)
 			OnResolveTransitionInitial ();
+		SwitchButton.Instance.DisableSpawnableArea ();
 		CameraPerspective ();
 		cursorSelectionScript.mouseFunction = null;
 		Tile TileScript;
@@ -258,8 +247,6 @@ public class GameManager : MonoBehaviour
 		guiFunction -= actionOrderHandler.UndoGUI;
 		guiFunction -= GUISelectionBox;
 		guiFunction -= switchButton.GUIPlayerStats;
-		guiFunction -= unitChoice.GUI_EnterResolvePhase;
-		guiFunction += unitChoice.GUItemp_EnterEndPhase;
 		if (StackInsertFinalActions != null)
 			StackInsertFinalActions ();
 		if (StackInsertInitialActions != null)
@@ -271,11 +258,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void _EnterEndPhase(){
-		phaseGUIFunction = switchButton.GUIFunction;
 		guiFunction += LayerSwitcher.Instance.GUIFunction;
 		turnState = TurnStates.EndPhase;
-		guiFunction -= unitChoice.GUItemp_EnterEndPhase;
-		guiFunction += switchButton.GUIFunction;
 		if (OnEndPhaseTransition != null)
 			OnEndPhaseTransition ();
 	}

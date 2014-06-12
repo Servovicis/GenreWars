@@ -45,21 +45,6 @@ public class SwitchButton : MonoBehaviour
 		CurrentPlayer = Player1Script;
 	}
 
-	public void GUIFunction() 
-	{
-		GUI.skin = customSkin;
-		if (GUI.Button(new Rect ( Screen.width * .47f - GuiWidth / 2f, Screen.height * .05f, 180f, GuiHeight), "End Turn"))
-		{
-			if (CurrentPlayer == Player1Script)
-				CurrentPlayer = Player2Script;
-			else
-				CurrentPlayer = Player1Script;
-			UnitChoiceScript.ThisPlayer = CurrentPlayer;
-			gameControllerScript._EnterInsertPhase();
-		}
-		return;
-	}
-
 	public void GUIPlayerStats()
 	{
 		GUI.Label(new Rect(15, 15, 500, 30), "Summoning Points: "+CurrentPlayer.SummoningPoints);

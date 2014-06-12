@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class KitsuneKind : RangedKind {
 
 	// Use this for initialization
 	protected override void Awake () {
-		SpecialName1 = "Power Shot!";
-		SpecialName2 = "Snare Trap!";
+		Special1Name = "Power Shot!";
+		Special2Name = "Snare Trap!";
 		base.Awake ();
 	}
 	

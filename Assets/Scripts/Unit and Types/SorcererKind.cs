@@ -2,8 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class SorcererKind : Unit 
-{
+public abstract class SorcererKind : MobileUnit {
 	const int initHealth = 10;
 	const int initDefense = 1;
 	const int initDamage = 6;
@@ -25,8 +24,6 @@ public abstract class SorcererKind : Unit
 	private int MaxHealRange = 2;
 	public string UnitTypeNameOverride = "Sorcerer";
 	public string MyNameOverride;
-	protected string Special1Name = "Spell Attack";
-	protected string Special2Name = "Thrust Attack";
 	float MyVelocity = 8.75F;
 	int WaittoHeal = 0;
 	
@@ -50,7 +47,6 @@ public abstract class SorcererKind : Unit
 		unitGUI = UnitGUI;
 		UnitType = GridCS.UnitType.Sorcerer;
 		IsKing = false;
-		OnActionSelect += InsertGUI;
 		OnActionDeselectExtra = RemoveGUI;
 		OnAttack = UnitResolveAttack;
 		//OnAttack = AOEAttack;
@@ -68,47 +64,23 @@ public abstract class SorcererKind : Unit
 			GameManager.Instance.OnTurnBegin -= HealCountdown;
 		}
 	}
-	
-	public virtual void SorcererGUI ()
-	{
-		if (!HasInteracted) {
-			GUI.BeginGroup (GUIGroupSize);
-			if (GUI.Button (new Rect  (175, 0, GUIButtonWidth, GUIButtonHeight), "Attack!")) 
-			{
-				RemoveAbilityRange ();
-				CalculateAttackRange ();
-				RemoveAbilityRange += RemoveAttackRange;
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-			}
-			if (GUI.Button (new Rect (400, 0, GUIButtonWidth, GUIButtonHeight), Special1Name)) 
-			{
-				OnSpecial = SpellAttack;
-				RemoveAbilityRange ();
-				SeeIfCanSpell ();
-				RemoveAbilityRange += RemoveSeeIfCanSpell;
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-			}
-			if (GUI.Button (new Rect (625, 0, GUIButtonWidth, GUIButtonHeight), Special2Name)) 
-			{
-				if (WaittoHeal == 0){
-				OnSpecial = GiveThemHealth;
-				RemoveAbilityRange ();
-				SeeIfCanHeal ();
-				RemoveAbilityRange += RemoveSeeIfCanHeal;
-				//OnActionDeselect = RemoveMoveRange;
-				//OnActionDeselect += RemoveAbilityRange;
-				}
-				else
-					Debug.Log ("Turn until Heal = " + WaittoHeal);
-			}
-			GUI.EndGroup ();
-		}
+
+	public override void SpecButton1 () {
+		OnSpecial = SpellAttack;
+		RemoveAbilityRange ();
+		SeeIfCanSpell ();
+		RemoveAbilityRange += RemoveSeeIfCanSpell;
 	}
 	
-	public virtual void AOEAttack(Vector2 TargetPosition, Vector2 InitiatorPosition){
-		
+	public override void SpecButton2 () {
+		if (WaittoHeal == 0){
+			OnSpecial = GiveThemHealth;
+			RemoveAbilityRange ();
+			SeeIfCanHeal ();
+			RemoveAbilityRange += RemoveSeeIfCanHeal;
+		}
+		else
+			Debug.Log ("Turn until Heal = " + WaittoHeal);
 	}
 	
 	public virtual void SpellAttack(Vector2 TargetPosition, Vector2 InitiatorPosition, int TargetLayer, int InitiatorLayer){
@@ -240,16 +212,6 @@ public abstract class SorcererKind : Unit
 		OnActionSelect ();
 		HasInteracted = !HasInteracted;
 		TurnInteract = new Vector2(0,0);
-	}
-	
-	public virtual void InsertGUI(){
-		GameManager.Instance.buttonsGUIFunction += SorcererGUI;
-	}
-	
-	public virtual void RemoveGUI(){
-		GameManager.Instance.buttonsGUIFunction = null;
-		OnActionSelect += InsertGUI;
-		RemoveAbilityRange = RemoveAttackRange;
 	}
 	
 	public override void CalculateAttackRange (){

@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{0AE903AA-35A4-AFFB-98E9-EDEA987E6358}</ProjectGuid>
+	<ProjectGuid>{3A70718F-F059-EE9A-53D3-B2003C5310D1}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,6 +46,39 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UIEquipmentSlot.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UIItemSlot.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UIItemStorage.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UIStorageSlot.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\System\InvAttachmentPoint.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\System\InvBaseItem.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\System\InvDatabase.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\System\InvEquipment.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\System\InvGameItem.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\System\InvStat.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\ChatInput.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\DownloadTexture.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\DragDropContainer.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\DragDropItem.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\DragDropRoot.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\DragDropSurface.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\LagPosition.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\LagRotation.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\LoadLevelOnClick.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\LookAtTarget.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\PanWithMouse.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\PlayIdleAnimations.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\SetColorOnSelection.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\ShaderQuality.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\Spin.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\SpinWithMouse.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\TypewriterEffect.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\UpdateManager.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\WindowAutoYaw.cs" />
+     <Compile Include="Assets\NGUI\Examples\Scripts\Other\WindowDragTilt.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\LanguageSelection.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\UIButton.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonActivate.cs" />
@@ -148,6 +181,7 @@
      <Compile Include="Assets\Scripts\Camera Controls\PerspectiveCamera.cs" />
      <Compile Include="Assets\Scripts\CursorSelection.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\GUIHelpMenu.cs" />
+     <Compile Include="Assets\Scripts\GUI Scripts\GUILeftPaneButton.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\GUIMainMenu.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\GUIOptionsMenu.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\GUIPauseMenu.cs" />
@@ -155,6 +189,7 @@
      <Compile Include="Assets\Scripts\GUI Scripts\GUIPlayer2Choice.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\LayerSwitcher.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\LevelSelect.cs" />
+     <Compile Include="Assets\Scripts\GUI Scripts\RightPaneButton.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\SwitchButton.cs" />
      <Compile Include="Assets\Scripts\GUI Scripts\UnitChoice.cs" />
      <Compile Include="Assets\Scripts\GameInit.cs" />
@@ -174,20 +209,28 @@
      <Compile Include="Assets\Scripts\Unit and Types\HeavyKind.cs" />
      <Compile Include="Assets\Scripts\Unit and Types\KingKind.cs" />
      <Compile Include="Assets\Scripts\Unit and Types\MeleeKind.cs" />
+     <Compile Include="Assets\Scripts\Unit and Types\MobileUnit.cs" />
      <Compile Include="Assets\Scripts\Unit and Types\RangedKind.cs" />
      <Compile Include="Assets\Scripts\Unit and Types\SorcererKind.cs" />
      <Compile Include="Assets\Scripts\Unit and Types\Unit.cs" />
      <Compile Include="Assets\Scripts\Unit and Types\WallKind.cs" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\Resources\Levels\SampleLevel.txt" />
+     <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\GUI - Text Shader (SoftClip).shader" />
+     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
      <None Include="Assets\Resources\Mythos.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Dynamic Font (AlphaClip).shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
+     <None Include="Assets\Configs\Character Balance.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (AlphaClip) .shader" />
+     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+     <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (AlphaClip).shader" />
+     <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (AlphaClip).shader" />
      <None Include="Assets\NGUI\Resources\Shaders\GUI - Text Shader (AlphaClip).shader" />
+     <None Include="Assets\NGUI\Examples\Other\French.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Dynamic Font (SoftClip).shader" />
      <None Include="Assets\Resources\Horror.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (SoftClip).shader" />
@@ -196,12 +239,19 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Dynamic Font.shader" />
      <None Include="Assets\NGUI\ReadMe - 2.7.0.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+     <None Include="Assets\NGUI\Examples\Shaders\Refractive.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed).shader" />
      <None Include="Assets\Resources\Levels.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\Resources\Genres.txt" />
+     <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+     <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
+     <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\NGUI\Examples\Other\English.txt" />
+     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

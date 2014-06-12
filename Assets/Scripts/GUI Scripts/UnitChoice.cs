@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UnitChoice : MonoBehaviour 
 {
@@ -27,6 +28,8 @@ public class UnitChoice : MonoBehaviour
 
 	public GameObject SpawnedUnit;
 	public Vector3 SpawnVector;
+
+	public List<Unit> AllSpawnableUnits = new List<Unit> ();
 	
 	CursorSelection CursorSelectionScript;
 	TurnActionOrderHandler actionOrderHandler;
@@ -72,24 +75,28 @@ public class UnitChoice : MonoBehaviour
 	
 	public void GUISelectionBoxInsert () 
 	{
-		GUI.BeginGroup (GUIGroupSize);
 		int buttoncount = 0;
 		int counter = 0;
 		foreach (GameObject ThisUnitObject in ThisPlayer.genreScript.UnitsList) 
 		{
 			Unit ThisUnit = ThisUnitObject.GetComponent<Unit>();
 			if (ThisUnit.IsSpawnable){	
-				if (GUI.Button (new Rect (GUIGroupSize.width*(buttoncount*.20f) + 25f, 0, GUIButtonWidth, GuiHeight), ThisUnit.MyName)) 
-				{
-					SpawnedUnit = ThisUnitObject;
-				}
+				AllSpawnableUnits.Add (ThisUnit);
+				GameManager.Instance.LeftPaneButtons[buttoncount].onClick = GameManager.Instance.LeftPaneButtons[buttoncount].SpawnedUnitButton;
+				GUILeftPaneButton thisButton = GameManager.Instance.LeftPaneButtons[buttoncount];
+				UILabel buttonLabel = thisButton.myLabel;
+				NGUITools.SetActive(thisButton.gameObject, true);
+				buttonLabel.text = ThisUnit.MyName;
+				//if (GUI.Button (new Rect (GUIGroupSize.width*(buttoncount*.20f) + 25f, 0, GUIButtonWidth, GuiHeight), ThisUnit.MyName)) 
+				//{
+				//	SpawnedUnit = ThisUnitObject;
+				//}
 				buttoncount++;
 			}
 			counter++;
 			}
 		counter = 0;
 		buttoncount = 0;
-		GUI.EndGroup ();
 	}
 
 	public void SpawnButton() 
@@ -121,28 +128,7 @@ public class UnitChoice : MonoBehaviour
 			}
 		}
 	}
-
-	public void GUI_EnterActionPhase()
-	{
-		if (GUI.Button (new Rect ( Screen.width * .47f - GuiWidth / 2f, Screen.height * .95f, 180f, GuiHeight), "End Phase")) {
-			GameControllerScript._EnterActionPhase();
-		}
-	}
-
-	public void GUI_EnterResolvePhase()
-	{
-		if (GUI.Button (new Rect ( Screen.width * .47f - GuiWidth / 2f, Screen.height * .95f, 180f, GuiHeight), "End Phase")) {
-			GameControllerScript._EnterResolvePhase();
-		}
-	}
 	
-	public void GUItemp_EnterEndPhase()
-	{
-		if (GUI.Button (new Rect ( Screen.width * .47f - GuiWidth / 2f, Screen.height * .95f, 180f, GuiHeight), "End Phase")) {
-			GameControllerScript._EnterEndPhase();
-		}
-	}
-
 	public void ObjectDetachFromTile(float xcoord, float ycoord, float zcoord, GameObject UnitObject)
 	{
 		Tile SelectedTile = GridCS.Instance.grid[(int) xcoord, (int) ycoord,(int) zcoord];

@@ -5,8 +5,8 @@ public class CerberusKind : HeavyKind {
 
 	// Use this for initialization
 	 protected override void Awake () {
-		SpecialName1 = "Rip and Tear!";
-		SpecialName2 = "Buff Mode!";
+		Special1Name = "Rip and Tear!";
+		Special2Name = "Buff Mode!";
 		base.Awake ();
 	}
 

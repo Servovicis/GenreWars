@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MinotaurKind : HeavyKind {
 	
 	// Use this for initialization
 	protected override void Awake () {
-		SpecialName1 = "Charge!";
-		SpecialName2 = "Pump It Up!";
+		Special1Name = "Charge!";
+		Special2Name = "Pump It Up!";
 		base.Awake ();
 	}
 	

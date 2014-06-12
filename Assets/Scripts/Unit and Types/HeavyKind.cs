@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class HeavyKind : Unit 
-{
+public abstract class HeavyKind : MobileUnit {
 	const int initHealth = 10;
 	const int initDefense = 2;
 	const int initDamage = 5;
@@ -20,8 +19,6 @@ public abstract class HeavyKind : Unit
 	private const int GUIButtonHeight = 29;
 	public string UnitTypeNameOverride = "Heavy";
 	public string MyNameOverride;
-	public string SpecialName1 = "Crush Them!";
-	public string SpecialName2 = "Buff Up!";
 	private int MinRipRange = 1;
 	private int MaxRipRange = 2;
 	private int MinBuffRange = 1;
@@ -72,53 +69,26 @@ public abstract class HeavyKind : Unit
 			GameManager.Instance.OnTurnBegin -= RipCrushCountdown;
 		}
 	}
-
-	public virtual void HeavyGUI ()
-	{
-		GUI.BeginGroup (GUIGroupSize);
-		if (GUI.Button (new Rect (175, 0, GUIButtonWidth, GUIButtonHeight), "Attack")) 
-		{
+	public override void SpecButton1 () {
+		if (WaittoRip == 0) {
+			OnSpecial = RipCrushThem;
 			RemoveAbilityRange ();
-			CalculateAttackRange ();
-			RemoveAbilityRange += RemoveAttackRange;
-			//OnActionDeselect = RemoveMoveRange;
-			//OnActionDeselect += RemoveAbilityRange;
+			SeeIfCanRipCrush ();
+			RemoveAbilityRange += RemoveSeeIfCanRipCrush;
+			ripCrushAvailable = false;
 		}
-		if (ripCrushAvailable) {	
-			if (GUI.Button (new Rect (400, 0, GUIButtonWidth, GUIButtonHeight), SpecialName1)) {
-				if (WaittoRip == 0) {
-					OnSpecial = RipCrushThem;
-					RemoveAbilityRange ();
-					SeeIfCanRipCrush ();
-					RemoveAbilityRange += RemoveSeeIfCanRipCrush;
-					ripCrushAvailable = false;
-				}
-			}
-		}
-		else{
-			GUI.Box(new Rect (400, 0, GUIButtonWidth, GUIButtonHeight), SpecialName1 + ": "+ WaittoRip);
-		}
-		if (buffAvailable) {
-			if (GUI.Button (new Rect (625, 0, GUIButtonWidth, GUIButtonHeight), SpecialName2)) {
-				if (WaittoBuff == 0) {
-					OnSpecial = GiveThemBuff;
-					RemoveAbilityRange ();
-					SeeIfCanBuff ();
-					RemoveAbilityRange += RemoveSeeIfCanBuff;
-					buffAvailable = false;
-				}
-			}
-		}
-		else{
-			GUI.Box(new Rect (625, 0, GUIButtonWidth, GUIButtonHeight), SpecialName2 + ": "+ WaittoBuff);
-		}
-		GUI.EndGroup ();
 	}
 	
-	public virtual void AOEAttack(Vector2 TargetPosition, Vector2 InitiatorPosition){
-		
+	public override void SpecButton2 () {
+		if (WaittoBuff == 0) {
+			OnSpecial = GiveThemBuff;
+			RemoveAbilityRange ();
+			SeeIfCanBuff ();
+			RemoveAbilityRange += RemoveSeeIfCanBuff;
+			buffAvailable = false;
+		}
 	}
-	
+
 	public virtual void RipCrushThem(Vector2 TargetPosition, Vector2 InitiatorPosition, int TargetLayer, int InitiatorLayer){
 		Debug.Log (TargetPosition + " We're Crushed, man!!");
 		double dist = ActionHelper.CalculateTwoDiminsionalDistance (InitiatorPosition, TargetPosition);
@@ -203,16 +173,6 @@ public abstract class HeavyKind : Unit
 		OnActionSelect ();
 		HasInteracted = !HasInteracted;
 		TurnInteract = new Vector2(0,0);
-	}
-		
-	public virtual void InsertGUI(){
-		GameManager.Instance.buttonsGUIFunction += HeavyGUI;
-	}
-		
-	public virtual void RemoveGUI(){
-		GameManager.Instance.buttonsGUIFunction = null;
-		OnActionSelect += InsertGUI;
-		RemoveAbilityRange = RemoveAttackRange;
 	}
 		
 }

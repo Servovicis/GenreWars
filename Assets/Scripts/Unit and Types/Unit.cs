@@ -106,7 +106,13 @@ public abstract class Unit : MonoBehaviour {
 	
 	#region Move and Attack variables
 	int _MoveValue;
-	public bool HasInteracted;
+
+	protected bool _HasInteracted = true;
+	public virtual bool HasInteracted {
+		get { return _HasInteracted; }
+		set { _HasInteracted = value; }
+	}
+
 	public bool HasMoved;
 	
 	Vector2 _TurnMove;
@@ -140,7 +146,7 @@ public abstract class Unit : MonoBehaviour {
 		get { return _selectionState; }
 		set {
 			if (_selectionState == value) return;
-			else if (GameManager.Instance.turnState == TurnStates.ActionPhase && IsSelectable){
+			else if (GameManager.Instance.turnState == TurnStates.InsertPhase && IsSelectable){
 				switch (_selectionState){
 				case UnitSelectionState.Selected:
 					OnActionDeselect ();
@@ -193,7 +199,7 @@ public abstract class Unit : MonoBehaviour {
 	protected virtual void Awake () {
 		selectionState = UnitSelectionState.Selected;
 		HasMoved = false;
-		HasInteracted = false;
+		HasInteracted = true;
 		OnDeath = RemoveUnit;
 		OnActionSelect += CalculateAttackMoveRange;
 		RemoveAbilityRange = RemoveAttackRange;
