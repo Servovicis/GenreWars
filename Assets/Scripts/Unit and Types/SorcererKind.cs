@@ -31,7 +31,7 @@ public abstract class SorcererKind : MobileUnit {
 	{
 		base.Awake ();
 		Health = initHealth;
-		Damage = initDamage;
+		CritChance = initDamage;
 		Defense = initDefense;
 		Movement = initMovement;
 		MaxRange = initMaxRange;

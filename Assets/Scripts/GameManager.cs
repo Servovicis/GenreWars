@@ -228,7 +228,7 @@ public class GameManager : MonoBehaviour
 		guiFunction += TurnActionOrderHandler.Instance.UndoGUI;
 		guiFunction += GUISelectionBox;
 		guiFunction += SwitchButton.Instance.GUIPlayerStats;
-		guiFunction += UnitChoice.Instance.SpawnButton;
+		//guiFunction += UnitChoice.Instance.SpawnButton;
 		phaseGUIFunction = guiFunction;
 		UnitChoice.Instance.GUISelectionBoxInsert ();
 	}

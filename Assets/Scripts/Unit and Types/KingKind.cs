@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class KingKind : Unit {
@@ -32,7 +32,7 @@ public class KingKind : Unit {
 		base.Awake ();
 		Health = initHealth;
 		MaxHealth = initHealth;
-		Damage = initDamage;
+		CritChance = initDamage;
 		Defense = initDefense;
 		Movement = initMovement;
 		MaxRange = initMaxRange;

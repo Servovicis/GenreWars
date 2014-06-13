@@ -33,7 +33,7 @@ public abstract class HeavyKind : MobileUnit {
 	{
 		base.Awake ();
 		Health = initHealth;
-		Damage = initDamage;
+		CritChance = initDamage;
 		Defense = initDefense;
 		Movement = initMovement;
 		MaxRange = initMaxRange;

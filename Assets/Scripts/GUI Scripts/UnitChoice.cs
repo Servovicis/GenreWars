@@ -102,8 +102,8 @@ public class UnitChoice : MonoBehaviour
 	public void SpawnButton() 
 	{
 
-		if (GUI.Button(new Rect(Screen.width * .8f, 225, 150, 27), "Spawn Unit")) 
-		{
+		//if (GUI.Button(new Rect(Screen.width * .8f, 225, 150, 27), "Spawn Unit")) 
+		//{
 			if (CursorSelectionScript.selectedTile != null)
 			{
 				SpawnVector = new Vector3 (CursorSelectionScript.selectedTile.xcoord, CursorSelectionScript.selectedTile.transform.position.y + UNITSPAWNHEIGHT, CursorSelectionScript.selectedTile.zcoord);
@@ -126,7 +126,7 @@ public class UnitChoice : MonoBehaviour
 			else {
 				print ("No tile selected");
 			}
-		}
+		//}
 	}
 	
 	public void ObjectDetachFromTile(float xcoord, float ycoord, float zcoord, GameObject UnitObject)

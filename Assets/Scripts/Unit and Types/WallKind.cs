@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class WallKind : Unit {
@@ -22,7 +22,7 @@ public class WallKind : Unit {
 		this.gameObject.transform.Translate (-0.5F, 0F, -0.5F);
 		Health = initHealth;
 		MaxHealth = initHealth;
-		Damage = initDamage;
+		CritChance = initDamage;
 		isHealable = false;
 		isBuffable = false;
 		Defense = initDefense;

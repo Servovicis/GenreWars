@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -34,7 +34,7 @@ public abstract class RangedKind : MobileUnit {
 	{
 		base.Awake ();
 		Health = initHealth;
-		Damage = initDamage;
+		CritChance = initDamage;
 		Defense = initDefense;
 		Movement = initMovement;
 		MaxRange = initMaxRange;

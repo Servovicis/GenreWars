@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public abstract class MeleeKind : MobileUnit {
@@ -30,7 +30,7 @@ public abstract class MeleeKind : MobileUnit {
 	{
 		base.Awake ();
 		Health = initHealth;
-		Damage = initDamage;
+		CritChance = initDamage;
 		Defense = initDefense;
 		Movement = initMovement;
 		MaxRange = initMaxRange;
